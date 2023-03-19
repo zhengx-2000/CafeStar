@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <style>
+        .content-center-right {
+            height: 600px;
+        }
+        .home-left-top{
+            width: 100%;
+            height: 60%;
+            background-color: #FFF;
+            border-bottom: 2px solid #482917;
+        }
+        .home-left-bottom{
+            width: 100%;
+            height: 40%;
+            background-color: #FFF;
+        }
+        .panel-title{
+            color: #482917;
+            margin: 0px auto;
+            text-align: left;
+            padding-left: 20px;
+            padding-top: 20px;
+        }
+        .grade{
+            padding-left: 50px;
+            padding-top: 30px;
+        }
+        .grade td{
+            border: 0px;
+            color: #000;
+            padding-left: 30px;
+            font-size: 12px;
+        }
+        .grade img{
+            width: 35px;height: 35px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="main_father justify-content-center">
+    <input type="hidden" id="userName" />
+    <div class="content">
+        <div class="top">
+            <div class="top-log" >
+                <a href="javascript:void(0);" style="display: block;">
+                    <img src="./asset/coffereLogo.png" class="logo_img l-animtion" alt="logo">
+                </a>
+            </div>
+            <div class="top-item">
+                <div class="top-btn-content">
+                    <button  id="homePageBtn">HOMEPAGE</button>
+                </div>
+
+            </div>
+            <div class="top-item">
+                <div class="top-btn-content">
+                    <button class="top-text" id="drinkLinkBtn">DRINKS</button>
+                </div>
+
+            </div>
+            <div class="top-item">
+                <div class="top-btn-content">
+                    <button class="top-text">ORDERS</button>
+                </div>
+
+            </div>
+
+            <div class="top-item" style="float: right">
+                <div class="user">
+                    <a href="javascript:void(0);" id="userProfileBtn"  style="display: block;">
+                        <img src="./asset/user.png" class="user-img u-animtion" alt="user" >
+                    </a>
+                </div>
+            </div>
+            <div class="search-container" style="float: right">
+                <input class="search-txt" type="text" placeholder="Search..." name="search"/>
+                <button type="submit">
+                    <i class="fa fa-search">Search</i>
+                </button>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+
+        <div class="content-center">
+            <div class="content-center-left">
+                <div class="loginPage">
+                    <img src="./asset/loginPage.png" class="login" alt="login" style="width: 100%;min-width: 700px; height: 600px;">
+                </div>
+            </div>
+            <div class="content-center-middle">
+
+            </div>
+            <div class="content-center-right" >
+                <div class="home-left-top">
+                    <div class="panel-title"><h1>Most Liked Drinks</h1></div>
+                    <div>
+                        <table class="grade">
+                            <tr>
+                                <td><img src="asset/right-icon.png"></td>
+                                <td>
+                                    <label>LongJing</label>
+                                </td>
+                                <td>
+                                    <div class="score">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire2.png">
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td>4.8</td>
+                            </tr>
+                            <tr>
+                                <td><img src="asset/right-icon.png"></td>
+                                <td>
+                                    <label>LongJing</label>
+                                </td>
+                                <td>
+                                    <div class="score">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire1.png">
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td>3.5</td>
+                            </tr>
+                            <tr>
+                                <td><img src="asset/right-icon.png"></td>
+                                <td>
+                                    <label>LongJing</label>
+                                </td>
+                                <td>
+                                    <div class="score">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire1.png">
+                                        <img src="asset/admire1.png">
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td>2.8</td>
+                            </tr>
+                            <tr>
+                                <td><img src="asset/right-icon.png"></td>
+                                <td>
+                                    <label>LongJing</label>
+                                </td>
+                                <td>
+                                    <div class="score">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire1.png">
+                                        <img src="asset/admire1.png">
+                                        <img src="asset/admire1.png">
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td>1.8</td>
+                            </tr>
+                            <tr>
+                                <td><img src="asset/right-icon.png"></td>
+                                <td>
+                                    <label>LongJing</label>
+                                </td>
+                                <td>
+                                    <div class="score">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire2.png">
+                                        <img src="asset/admire1.png">
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td>4.2</td>
+                            </tr>
+
+                        </table>
+                    </div>
+
+                </div>
+                <div class="home-left-bottom">
+                    <div class="panel-title"><h1>Contact US</h1></div>
+                    <div>
+                        <table class="grade">
+                            <tr>
+                                <td><img src="asset/tel.png"></td>
+                                <td>
+                                    <label>+44 123456 0900</label>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td><img src="asset/location.png"></td>
+                                <td>
+                                    <label>Fin us on the map!</label>
+                                </td>
+
+                            </tr>
+
+
+                        </table>
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#userProfileBtn").click(function() {
+            let userName = localStorage.getItem("userName")
+            if (undefined != userName && null != userName) {
+                location.href="userProfile.html";
+            }else{
+                location.href="newLogin.html";
+            }
+        });
+    });
+</script>
+</html>
