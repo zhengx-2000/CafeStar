@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/newLogin.css">
+</head>
+<body>
+<div class="main_father justify-content-center">
+    <div class="content">
+        <div class="top">
+            <div class="top-log">
+                <a href="javascript:void(0);" style="display: block;">
+                    <img src="./asset/coffereLogo.png" class="logo_img l-animtion" alt="logo">
+                </a>
+            </div>
+            <div class="top-item">
+                <div class="top-btn-content">
+                    <button  id="homePageBtn">HOMEPAGE</button>
+                </div>
+
+            </div>
+            <div class="top-item">
+                <div class="top-btn-content">
+                    <button class="top-text" id="drinkLinkBtn">DRINKS</button>
+                </div>
+
+            </div>
+            <div class="top-item">
+                <div class="top-btn-content">
+                    <button class="top-text">ORDERS</button>
+                </div>
+
+            </div>
+
+            <div class="top-item" style="float: right">
+                <div class="user">
+                    <a href="javascript:void(0);" style="display: block;">
+                        <img src="./asset/user.png" class="user-img u-animtion" alt="user" >
+                    </a>
+                </div>
+            </div>
+            <div class="search-container" style="float: right">
+                <input class="search-txt" type="text" placeholder="Search..." name="search"/>
+                <button type="submit">
+                    <i class="fa fa-search">Search</i>
+                </button>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+
+        <div class="content-center">
+            <div class="content-center-left">
+                <div class="login">
+                    <img src="./asset/login.png" class="login" alt="login" style="width: 100%;min-width: 700px; height: 600px;">
+                </div>
+            </div>
+            <div class="content-center-middle">
+
+            </div>
+            <div class="content-center-right">
+                <div class="form-wrappepr">
+                    <div class="login-title"><h1>Log In</h1></div>
+
+                    <input type="text" class="inputs user" id="userName" placeholder="Enter Your Email Address">
+                    <input type="password" class="inputs pwd" id="pwd" placeholder="Enter Your Password">
+                    <span class="tips">Forgotten Password</span>
+                    <button id="loginBtn">Sign In</button>
+                    <div class="other-login">
+                        <div class="divider">
+                            <span class="line"></span>
+                            <span class="divider-text">or continue with</span>
+                            <span class="line"></span>
+                        </div>
+                        <div class="other-login-wrapper">
+                            <span class="tips">Register</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#loginBtn").click(function(){
+            localStorage.setItem("userName","userName");
+            location.href="homePage.html";
+            var userName = $("#userName").val();
+            var pwd = $("#pwd").val();
+            $.post("/login",
+                {
+                    userName:userName,
+                    pwd:pwd
+                },
+                function(data,status){
+                    location.href="homePage.html";
+                });
+        });
+    });
+</script>
+</html>

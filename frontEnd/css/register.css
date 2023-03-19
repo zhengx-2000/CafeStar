@@ -1,0 +1,72 @@
+.content-center-right {
+    height: 600px;
+}
+
+.home-left-top {
+    width: 100%;
+    height: 80%;
+    background-color: #FFF;
+}
+
+.home-left-bottom {
+    width: 100%;
+    height: 20%;
+    background-color: #FFF;
+}
+
+.panel-title {
+    color: #482917;
+    margin: 0px auto;
+    text-align: left;
+    padding-left: 50px;
+    padding-top: 20px;
+}
+
+.grade {
+    padding-top: 30px;
+    width: 650px;
+}
+
+.grade td {
+    border: 0px;
+    color: #000;
+    padding-left: 50px;
+    padding-bottom: 25px;
+    font-size: 25px;
+}
+
+.grade td input {
+    border: 1px solid #9a9494;
+    color: #000;
+    width: 280px;
+    padding-left: 10px;
+    margin-top: 0px;
+    border-radius: 2px;
+    float: right;
+    background-color: #eee;
+}
+
+.grade .sign-txt {
+    /* margin-left: 130px;*/
+}
+
+.grade img {
+    width: 35px;
+    height: 35px;
+}
+
+.home-left-bottom-form {
+    width: 600px;
+    text-align: center;
+    margin-left: 50px;
+}
+
+.sign-btn {
+    width: 100%;
+    height: 50px;
+    background-color: #482917;
+    border-radius: 5px;
+
+    color: #FFFFFF;
+    font-size: 25px;
+}

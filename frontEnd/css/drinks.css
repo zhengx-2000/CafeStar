@@ -1,0 +1,36 @@
+.home-center-top {
+    width: 100%;
+    background-color: #FFF;
+}
+
+.panel-title {
+    color: #482917;
+    margin: 0px auto;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.grade {
+    padding: 40px;
+    width: 100%;
+}
+
+.grade td {
+    border: 0px;
+    color: #000;
+    padding-left: 15px;
+    padding-bottom: 25px;
+    font-size: 25px;
+}
+
+.grade td h1 {
+    text-align: center;
+    color: #482917;
+    padding-top: 25px;
+    font-size: 25px;
+}
+
+.grade img {
+    width: 295px;
+    height: 360px;
+}

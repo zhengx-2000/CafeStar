@@ -1,0 +1,147 @@
+
+body{
+  margin: 0;
+  background-color: #abc6f8;
+  background-image: radial-gradient(closest-side, rgb(255, 255, 255), rgba(235, 105, 78, 0)), radial-gradient(closest-side, rgb(250, 203, 203), rgba(243, 11, 164, 0)), radial-gradient(closest-side, rgb(237, 252, 202), rgba(254, 234, 131, 0)), radial-gradient(closest-side, rgb(197, 248, 241), rgba(170, 142, 245, 0)), radial-gradient(closest-side, rgb(206, 200, 243), rgba(248, 192, 147, 0));
+  background-size: 130vmax 130vmax, 80vmax 80vmax, 90vmax 90vmax, 110vmax 110vmax, 90vmax 90vmax;
+  background-position: -80vmax -80vmax, 60vmax -30vmax, 10vmax 10vmax, -30vmax -10vmax, 50vmax 50vmax;
+  background-repeat: no-repeat;
+  animation: 10s movement linear infinite;
+}
+
+h1{
+  margin: 0px;
+}
+input[type=text] {
+  padding: 10px;
+  margin-top: 55px;
+  font-size: 17px;
+  border: none;
+}
+
+.main_father {
+  height: 100%;
+}
+
+.justify-content-center {
+  -webkit-box-pack: center !important;
+  justify-content: center !important;
+}
+
+.content {
+  width: 1400px;
+  margin: 0px auto;
+  /*background-color: #482917;*/
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Century Gothic", Times, serif;
+}
+
+.top {
+  background-color: #482917;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Century Gothic", Times, serif;
+  text-align: center;
+}
+
+.top-item {
+  float: left;
+  width: 150px;
+  text-align: center;
+  margin-right: 30px;
+  transition: 0.5s; /*动画效果持续时间*/
+}
+
+.top-log {
+  float: left;
+  width: 150px;
+  text-align: center;
+  margin-right: 30px;
+}
+
+.logo_img {
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+}
+
+.top-btn-content {
+  width: 150px;
+  height: 50px;
+  margin: 25px 10px;
+}
+
+.content .top .top-item button {
+  width: 100%;
+  height: 50px;
+  background-color: #482917;
+  border-radius: 10px;
+  font-size: 20px;
+  color: #fff;
+  border: 0;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Century Gothic", Times, serif;
+
+}
+
+.content .top .top-item button:hover {
+  border: 0;
+  background-color: #482917;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: -20px 28px 42px 0 rgba(62, 145, 255, 0.37);
+}
+
+.search-container {
+  float: right;
+  height: 40px;
+  padding: 30px 0px;
+}
+
+.search-container .search-txt {
+  width: 220px;
+  float: left;
+  padding: 10px;
+  margin-top: 0px;
+  font-size: 17px;
+  border: none;
+}
+
+.search-container button {
+  width: 95px;
+  height: 40px;
+  float: right;
+  background: #785f5f;
+  color: #ffffff;
+  font-size: 17px;
+  border: none;
+}
+
+.user {
+  width: 40px;
+  height: 40px;
+  margin: 30px 30px;
+}
+
+.user-img {
+  width: 40px;
+  height: 40px;
+}
+
+.content-center {
+  margin-top: 5px;
+}
+
+.content-center-left {
+  width: 60%;
+  float: left;
+}
+
+.content-center-right {
+  width: 39.5%;
+  float: right;
+}
