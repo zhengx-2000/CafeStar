@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+	Your Orders
+{% endblock %}
+
+{% block header_block %}
+	<div class="container">
+		<h2>ORDER LIST</h2>
+	</div>
+	
+{% endblock %}
+				
+{% block content_block %}
+
+	<table class="firstTable" style="width: 100%">
+		<tr> 	<td class="headerTable"> <strong>Your Orders</strong> </td> </tr>
+		<tr> 	<td> Latte </td>
+				<td style="float:right; margin-left: auto;"> <button class="deleteButton">Delete</button> </td>
+		</tr>
+		<tr>	<td> Espresso </td>
+				<td style="float:right; margin-left: auto;"> <button class="deleteButton">Delete</button> </td>
+		</tr>
+	</table>
+	
+	<br>
+	
+	<table class="firstTable" style="width: 100%">
+		<tr> 	<td> Total Price </td>
+				<td style="float:right; margin-left: auto;"> <strong>£ 12</strong> </td>
+		</tr>
+	</table>
+
+	<button class="confButton" style="float:right; margin-left: auto;">Confirm</button>
+
+
+{% endblock %}
