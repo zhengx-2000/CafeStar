@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drinks</title>
+    <script src="../static/js/jquery-3.5.1.min.js"></script>
+    <script src="../static/js/main.js"></script>
+    <link rel="stylesheet" href="../static/css/drinks.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+<div class="main_father justify-content-center">
+    <div class="content">
+        <div class="top">
+            <div class="top-log">
+                <a href="javascript:void(0);" style="display: block;">
+                    <img src="../static/image/coffereLogo.png" class="logo_img l-animtion" alt="logo">
+                </a>
+            </div>
+            <div class="top-item">
+                <div class="top-btn-content">
+                    <button  id="homePageBtn">HOMEPAGE</button>
+                </div>
+
+            </div>
+            <div class="top-item">
+                <div class="top-btn-content">
+                    <button class="top-text" id="drinkLinkBtn">DRINKS</button>
+                </div>
+
+            </div>
+            <div class="top-item">
+                <div class="top-btn-content">
+                    <button class="top-text">ORDERS</button>
+                </div>
+
+            </div>
+
+            <div class="top-item" style="float: right">
+                <div class="user">
+                    <a href="javascript:void(0);" id="userProfileBtn" style="display: block;">
+                        <img src="../static/image/user.png" class="user-img u-animtion" alt="user" >
+                    </a>
+                </div>
+            </div>
+            <div class="search-container" style="float: right">
+                <input class="search-txt" type="text" placeholder="Search..." name="search"/>
+                <button type="submit">
+                    <i class="fa fa-search">Search</i>
+                </button>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+
+        <div class="content-center">
+            <div class="content-center-left" style="width: 0px">
+            </div>
+            <div class="content-center-middle" style="width: 100%;">
+                <div class="home-center-top">
+                    <div class="panel-title">
+                        <h1 >DRINKS </h1>
+                    </div>
+                    <div>
+                        <table class="grade">
+                            <tr>
+                                <td>
+                                    <div class="drink-content">
+                                        <a href="javascript:void(0);">
+                                            <img class="drink-link-img" src="../static/image/Latte.png" />
+                                        </a>
+                                        <h1 class="drink-link-label">Latte</h1>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="drink-content">
+                                        <a href="javascript:void(0);">
+                                            <img class="drink-link-img" src="../static/image/Cappuccino.png" />
+                                        </a>
+                                        <h1 class="drink-link-label">Cappuccino</h1>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="drink-content">
+                                        <a href="javascript:void(0);">
+                                            <img class="drink-link-img" src="../static/image/Espresso.png" />
+                                        </a>
+                                        <h1 class="drink-link-label">Espresso</h1>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="drink-content">
+                                        <a href="javascript:void(0);">
+                                            <img class="drink-link-img" src="../static/image/Mocha.png" />
+                                        </a>
+                                        <h1 class="drink-link-label">Mocha</h1>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+
+                </div>
+
+                <div style="clear: both"></div>
+            </div>
+            <div class="content-center-right" style="width: 0px" >
+
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#loginBtn").click(function(){
+            var userName = $("#userName").val();
+            var pwd = $("#pwd").val();
+            $.post("/login",
+                {
+                    userName:userName,
+                    pwd:pwd
+                },
+                function(data,status){
+                    location.href="homePage.html";
+                });
+        });
+        $("#userProfileBtn").click(function() {
+            let userName = localStorage.getItem("userName")
+            if (undefined != userName && null != userName) {
+                location.href="register.html";
+            }else{
+                location.href="newLogin.html";
+            }
+        });
+    });
+</script>
+</html>
