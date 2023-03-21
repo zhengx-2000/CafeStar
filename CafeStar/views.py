@@ -5,10 +5,10 @@ from django.views import View
 from django.utils.decorators import method_decorator
 
 
-def drinkDetail(request, drink_ID):
+def drinkDetail(request, drink_name):
     context_dict = {}
     try:
-        drink = Drink.objects.get(DrinkId=drink_ID)
+        drink = Drink.objects.get(Name=drink_name)
     except:
         drink = None
 
