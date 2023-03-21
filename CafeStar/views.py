@@ -20,7 +20,7 @@ def drinkDetail(request, drink_name):
 def drinks(request):
     context_dict = {}
 
-    drink_list = Drink.objects.get()
+    drink_list = Drink.objects.all()
     context_dict['drinks'] = drink_list
 
     return render(request, 'CafeStar/drinks.html', context=context_dict)
