@@ -19,7 +19,7 @@
             </div>
             <div class="top-item">
                 <div class="top-btn-content">
-                    <button  id="homePageBtn">HOMEPAGE</button>
+                    <button id="homePageBtn">HOMEPAGE</button>
                 </div>
 
             </div>
@@ -39,7 +39,7 @@
             <div class="top-item" style="float: right">
                 <div class="user">
                     <a href="javascript:void(0);" style="display: block;">
-                        <img src="../static/image/user.png" class="user-img u-animtion" alt="user" >
+                        <img src="../static/image/user.png" class="user-img u-animtion" alt="user">
                     </a>
                 </div>
             </div>
@@ -55,95 +55,62 @@
         <div class="content-center">
             <div class="content-center-left" style="width: 45%">
                 <div class="register">
-                    <img src="../static/image/register.png" class="register" alt="register" style="width: 100%;min-width: 500px; height: 600px;">
+                    <img src="../static/image/register.png" class="register" alt="register"
+                         style="width: 100%;min-width: 500px; height: 600px;">
                 </div>
             </div>
             <div class="content-center-middle">
 
             </div>
-            <div class="content-center-right" style="width: 54.5%" >
-                <div class="home-left-top">
-                    <div class="panel-title"><h1>SIGN UP</h1></div>
-                    <div>
-                        <table class="grade">
-                            <tr>
-                                <td>
-                                    <label>Full Name</label>
-                                </td>
-                                <td>
-                                    <div class="sign-txt">
-                                        <input type="text" id="fullName" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>User Name</label>
-                                </td>
-                                <td>
-                                    <div class="sign-txt">
-                                        <input type="text" id="userName" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>Email</label>
-                                </td>
-                                <td>
-                                    <div class="sign-txt">
-                                        <input type="text" id="email" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>Password</label>
-                                </td>
-                                <td>
-                                    <div class="sign-txt">
-                                        <input type="text" id="pwd" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>Phone Number</label>
-                                </td>
-                                <td>
-                                    <div class="sign-txt">
-                                        <input type="text" id="phone" />
-                                    </div>
-                                </td>
-                            </tr>
+            <div class="content-center-right" style="width: 54.5%">
+                <form action="register" method="post">
+                    <div class="home-left-top">
+                        <div class="panel-title"><h1>SIGN UP</h1></div>
+                        <div>
+                            <table class="grade">
+                                {% csrf_token %}
+                                {% for field in userModelform %}
+                                    <tr>
+                                        <td>
+                                            <label>{{ field.label }}</label>
+                                        </td>
+                                        <td>
+                                            <div class="sign-txt">
+                                                {{ field }}
+                                                <span style="color: red">{{ field.errors.0 }}</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
 
-                        </table>
+                            </table>
+                        </div>
+
                     </div>
-
-                </div>
                     <div class="home-left-bottom">
                         <div class="home-left-bottom-form">
-                            <button id="signBtn" class="sign-btn">SIGN UP</button>
+                            <div> <span style="color: red">{{ error_msg }}</span></div>
+                            <button id="signBtn" class="sign-btn" type="submit">SIGN UP</button>
                         </div>
-                </div>
-
+                    </div>
+                </form>
                 <div style="clear: both"></div>
             </div>
         </div>
     </div>
 </body>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $("#loginBtn").click(function(){
+    $(document).ready(function () {
+        $("#loginBtn").click(function () {
             var userName = $("#userName").val();
             var pwd = $("#pwd").val();
             $.post("/login",
                 {
-                    userName:userName,
-                    pwd:pwd
+                    userName: userName,
+                    pwd: pwd
                 },
-                function(data,status){
-                    location.href="homePage.html";
+                function (data, status) {
+                    location.href = "homePage.html";
                 });
         });
     });

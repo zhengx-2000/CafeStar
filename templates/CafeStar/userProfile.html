@@ -19,7 +19,7 @@
             </div>
             <div class="top-item">
                 <div class="top-btn-content">
-                    <button  id="homePageBtn">HOMEPAGE</button>
+                    <button id="homePageBtn">HOMEPAGE</button>
                 </div>
 
             </div>
@@ -39,7 +39,7 @@
             <div class="top-item" style="float: right">
                 <div class="user">
                     <a href="javascript:void(0);" style="display: block;">
-                        <img src="../static/image/user.png" class="user-img u-animtion" alt="user" >
+                        <img src="../static/image/user.png" class="user-img u-animtion" alt="user">
                     </a>
                 </div>
             </div>
@@ -55,96 +55,71 @@
         <div class="content-center">
             <div class="content-center-left" style="width: 45%">
                 <div class="userprofile">
-                    <img src="../static/image/userprofile.png" class="userprofile" alt="userprofile" style="width: 100%;min-width: 500px; height: 600px;">
+                    <img src="../static/image/userprofile.png" class="userprofile" alt="userprofile"
+                         style="width: 100%;min-width: 500px; height: 600px;">
                 </div>
             </div>
             <div class="content-center-middle">
 
             </div>
-            <div class="content-center-right" style="width: 54.5%" >
-                <div class="home-left-top">
-                    <div class="panel-title">
-                        <h1 style="float: left;">Hello </h1>
-                        <h1  style="float: left;margin-left: 50px" id  ="userNameTitle">haohao</h1></div>
-                    <div>
-                        <table class="grade">
-                            <tr>
-                                <td>
-                                    <label>Full Name</label>
-                                </td>
-                                <td>
-                                    <div class="sign-txt">
-                                        <input type="text" id="fullName" value="xxx"/>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>User Name</label>
-                                </td>
-                                <td>
-                                    <div class="sign-txt">
-                                        <input type="text" id="userName" value="xxx" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>Email</label>
-                                </td>
-                                <td>
-                                    <div class="sign-txt">
-                                        <input type="text" id="email" value="xxx" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>Password</label>
-                                </td>
-                                <td>
-                                    <div class="sign-txt">
-                                        <input type="text" id="pwd" value="xxx" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>Phone Number</label>
-                                </td>
-                                <td>
-                                    <div class="sign-txt">
-                                        <input type="text" id="phone" value="xxx" />
-                                    </div>
-                                </td>
-                            </tr>
+            <form action="/CafeStar/edit" method="post">
+                <div class="content-center-right" style="width: 54.5%">
+                    <div class="home-left-top">
+                        <div class="panel-title">
+                            <h1 style="float: left;">Hello </h1>
+                            <h1 style="float: left;margin-left: 50px"
+                                id="userNameTitle">{{ request.session.userInfo.userName }}</h1></div>
+                        <div>
+                            <table class="grade">
+                                {% csrf_token %}
+                                {% for field in userModelform %}
+                                    <tr>
+                                        <td>
+                                            <label>{{ field.label }}</label>
+                                        </td>
+                                        <td>
+                                            <div class="sign-txt">
+                                                {{ field }}
+                                                <span style="color: red">{{ field.errors.0 }}</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
 
-                        </table>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="home-left-bottom">
+                         <span style="color: red">{{ error_msg}}</span>
+                        <div class="home-left-bottom-form">
+                            <button id="/CafeStar/edit" class="sign-btn" type="submit">SAVE</button>
+                        </div>
+                        <div class="home-left-bottom-form">
+                            <a href="/CafeStar/logout">LOG OUT</a>
+                        </div>
+
                     </div>
 
+                    <div style="clear: both"></div>
                 </div>
-                <div class="home-left-bottom">
-                    <div class="home-left-bottom-form">
-                        <button id="editBtn" class="sign-btn">EDIT</button>
-                        <button id="logoutBtn" class="logout-btn">LOG OUT</button>
-                    </div>
-                </div>
-
-                <div style="clear: both"></div>
-            </div>
+            </form>
         </div>
     </div>
+</div>
+</div>
 </body>
+
 <script type="text/javascript">
-    $(document).ready(function(){
-        $("#loginBtn").click(function(){
+    $(document).ready(function () {
+        $("#loginBtn").click(function () {
             let userName = localStorage.getItem("userName");
             $.post("/getUserProfile",
                 {
-                    userName:userName
+                    userName: userName
                 },
-                function(data,status){
-                    if(data.code = 200){
+                function (data, status) {
+                    if (data.code = 200) {
                         var userInfo = data.data.userInfo;
                         $("#fullName").val(userInfo.fullName);
                         $("#userName").val(userInfo.userName);
@@ -154,24 +129,24 @@
                     }
                 });
         });
-        $("#editBtn").click(function(){
+        $("#editBtn").click(function () {
             let userName = localStorage.getItem("userName");
             let fullName = $("#fullName").val();
             let pwd = $("#pwd").val();
             $.post("/editUserProfile",
                 {
-                    fullName:fullName
-                    ,pwd:pwd
+                    fullName: fullName
+                    , pwd: pwd
                 },
-                function(data,status){
-                    if(data.code = 200){
+                function (data, status) {
+                    if (data.code = 200) {
 
                     }
                 });
         });
-        $("#logoutBtn").click(function(){
+        $("#logoutBtn").click(function () {
             localStorage.removeItem("userName");
-            location.href ="newLogin.html";
+            location.href = "newLogin.html";
         });
     });
 </script>

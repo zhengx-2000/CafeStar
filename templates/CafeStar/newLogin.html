@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,7 @@
             </div>
             <div class="top-item">
                 <div class="top-btn-content">
-                    <button  id="homePageBtn">HOMEPAGE</button>
+                    <button id="homePageBtn">HOMEPAGE</button>
                 </div>
 
             </div>
@@ -40,7 +41,7 @@
             <div class="top-item" style="float: right">
                 <div class="user">
                     <a href="javascript:void(0);" style="display: block;">
-                        <img src="../static/image/user.png" class="user-img u-animtion" alt="user" >
+                        <img src="../static/image/user.png" class="user-img u-animtion" alt="user">
                     </a>
                 </div>
             </div>
@@ -56,7 +57,8 @@
         <div class="content-center">
             <div class="content-center-left">
                 <div class="login">
-                    <img src="../static/image/login.png" class="login" alt="login" style="width: 100%;min-width: 700px; height: 600px;">
+                    <img src="../static/image/login.png" class="login" alt="login"
+                         style="width: 100%;min-width: 700px; height: 600px;">
                 </div>
             </div>
             <div class="content-center-middle">
@@ -66,10 +68,14 @@
                 <div class="form-wrappepr">
                     <div class="login-title"><h1>Log In</h1></div>
 
-                    <input type="text" class="inputs user" id="userName" placeholder="Enter Your Email Address">
-                    <input type="password" class="inputs pwd" id="pwd" placeholder="Enter Your Password">
-                    <span class="tips">Forgotten Password</span>
-                    <button id="loginBtn">Sign In</button>
+                    <form method="post" action="/CafeStar/login">
+                        {% csrf_token %}
+                        <input type="text" class="inputs user" name="userName" placeholder="Enter Your Email Address">
+                        <input type="password" class="inputs pwd" name="pwd" placeholder="Enter Your Password">
+                        <span style="color: red">{{ errMsg }}</span>
+                        <!--<div><span class="tips">Forgotten Password</span></div>-->
+                        <button id="loginBtn" type="submit">Sign In</button>
+                    </form>
                     <div class="other-login">
                         <div class="divider">
                             <span class="line"></span>
@@ -77,7 +83,9 @@
                             <span class="line"></span>
                         </div>
                         <div class="other-login-wrapper">
-                            <span class="tips">Register</span>
+                            <a href="/CafeStar/register">
+                                <span class="tips">Register</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -89,21 +97,21 @@
 </div>
 </body>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $("#loginBtn").click(function(){
-            localStorage.setItem("userName","userName");
-            location.href="homePage.html";
-            var userName = $("#userName").val();
-            var pwd = $("#pwd").val();
-            $.post("/login",
-                {
-                    userName:userName,
-                    pwd:pwd
-                },
-                function(data,status){
-                    location.href="homePage.html";
-                });
-        });
-    });
+    {#$(document).ready(function () {#}
+    {#    $("#loginBtn").click(function () {#}
+    {#        localStorage.setItem("userName", "userName");#}
+    {#        location.href = "homePage.html";#}
+    {#        var userName = $("#userName").val();#}
+    {#        var pwd = $("#pwd").val();#}
+    {#        $.post("/login",#}
+    {#            {#}
+    {#                userName: userName,#}
+    {#                pwd: pwd#}
+    {#            },#}
+    {#            function (data, status) {#}
+    {#                location.href = "homePage.html";#}
+    {#            });#}
+    {#    });#}
+    {#});#}
 </script>
 </html>

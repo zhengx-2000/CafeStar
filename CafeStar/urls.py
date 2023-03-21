@@ -9,4 +9,8 @@ urlpatterns = [
     path('drinks', views.drinks, name='drinks'),
     path('order', views.order, name='order'),
     path('orderPricePoint', views.OrderInformationView.as_view(), name='order_price_point'),
+    path('login', views.newLogin, name='login'),
+    path('register', views.register, name='register'),
+    path('logout', views.logout, name='logout'),
+    path('edit', views.userProfile, name='edit'),
 ]

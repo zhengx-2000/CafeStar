@@ -10,17 +10,17 @@
 </head>
 <body>
 <div class="main_father justify-content-center">
-    <input type="hidden" id="userName" />
+    <input type="hidden" id="userName"/>
     <div class="content">
         <div class="top">
-            <div class="top-log" >
+            <div class="top-log">
                 <a href="javascript:void(0);" style="display: block;">
                     <img src="../static/image/coffereLogo.png" class="logo_img l-animtion" alt="logo">
                 </a>
             </div>
             <div class="top-item">
                 <div class="top-btn-content">
-                    <button  id="homePageBtn">HOMEPAGE</button>
+                    <button id="homePageBtn">HOMEPAGE</button>
                 </div>
 
             </div>
@@ -39,9 +39,17 @@
 
             <div class="top-item" style="float: right">
                 <div class="user">
-                    <a href="javascript:void(0);" id="userProfileBtn"  style="display: block;">
-                        <img src="../static/image/user.png" class="user-img u-animtion" alt="user" >
+                    <!-- <a href="javascript:void(0);"  id="userProfileBtn"  style="display: block;"> -->
+                    <a href="/CafeStar/login"  style="display: block;">
+                        <img src="../static/image/user.png" class="user-img u-animtion" alt="user">
                     </a>
+                </div>
+                <div class="user">
+                    <!-- <a href="javascript:void(0);"  id="userProfileBtn"  style="display: block;"> -->
+                    <a href="/CafeStar/edit"  style="display: block;">
+                        <img src="../static/image/user.png" class="user-img u-animtion" alt="user">
+                    </a>
+                    <span> {{ request.session.userInfo.userName }}</span>
                 </div>
             </div>
             <div class="search-container" style="float: right">
@@ -56,13 +64,14 @@
         <div class="content-center">
             <div class="content-center-left">
                 <div class="homepage">
-                    <img src="../static/image/homepage.png" class="homepage" alt="homepage" style="width: 100%;min-width: 700px; height: 600px;">
+                    <img src="../static/image/homepage.png" class="homepage" alt="homepage"
+                         style="width: 100%;min-width: 700px; height: 600px;">
                 </div>
             </div>
             <div class="content-center-middle">
 
             </div>
-            <div class="content-center-right" >
+            <div class="content-center-right">
                 <div class="home-left-top">
                     <div class="panel-title"><h1>Most Liked Drinks</h1></div>
                     <div>
@@ -178,22 +187,22 @@
 
 
                         </table>
+                    </div>
                 </div>
-            </div>
 
-            <div style="clear: both"></div>
+                <div style="clear: both"></div>
+            </div>
         </div>
     </div>
-</div>
 </body>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $("#userProfileBtn").click(function() {
+    $(document).ready(function () {
+        $("#userProfileBtn").click(function () {
             let userName = localStorage.getItem("userName")
             if (undefined != userName && null != userName) {
-                location.href="register.html";
-            }else{
-                location.href="newLogin.html";
+                location.href = "register.html";
+            } else {
+                location.href = "newLogin.html";
             }
         });
     });
