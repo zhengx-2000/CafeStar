@@ -15,7 +15,8 @@
 {% endblock %}
 				
 {% block content_block %}
-				
+<form method="POST" action="{% url 'CafeStar:order' %}">
+	{% csrf_token %}
 	<table class="firstTable" style="width: 100%; text-align: left;">
 	  <tr>
 		<th>DRINK</th>
@@ -79,9 +80,9 @@
 		</table>
 	  </td>
 	  <td>
-		<button class="orderButton">ORDER</button>
+		<button class="orderButton" type="submit">ORDER</button>
 	  </td>
 	</table>
-
+</form>
 
 {% endblock %}
