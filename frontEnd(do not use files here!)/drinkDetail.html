@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+	Drink Details
+{% endblock %}
+		
+{% block header_block %}
+	<div class="container">
+		<h2>LATTE</h2>
+	</div>			
+{% endblock %}
+				
+{% block content_block %}
+	<div class="stars">
+		<input type="radio" name="rating" id="rating-5" value="5"><label for="rating-5"></label>
+		<input type="radio" name="rating" id="rating-4" value="4"><label for="rating-4"></label>
+		<input type="radio" name="rating" id="rating-3" value="3"><label for="rating-3"></label>
+		<input type="radio" name="rating" id="rating-2" value="2"><label for="rating-2"></label>
+		<input type="radio" name="rating" id="rating-1" value="1"><label for="rating-1"></label>
+		<p> <strong>4.7/5</strong> &nbsp;&nbsp; </p>
+	</div>
+
+	<div>
+		<p> A latte or caffè latte is a milk coffee that boasts a silky layer of foam as a real highlight to the drink. </p>
+	</div>
+
+	<br>
+	<br>
+
+	<table style="width: 100%">
+	  <tr>
+		<td class="headerTable">NUTRITION</td>
+		<td class="headerTable">INGREDIENTS</td>
+	  </tr>
+	  <tr>
+		<td>
+			<table style="width: 100%; text-align: left;">
+			  <tr>
+				<th>Calories</th>
+				<td>189 kcal</td>
+			  </tr>
+			  <tr>
+				<th>Fat</th>
+				<td>7 g</td>
+			  </tr>
+			  <tr>
+				<th>Carb</th>
+				<td>10 g</td>
+			  </tr>
+			  <tr>
+				<th>Protein</th>
+				<td>3 g</td>
+			  </tr>
+			</table>
+		</td>
+		<td>
+			<table style="width: 100%; text-align: left;">
+			  <tr>
+				<th>1/3</th>
+				<td>Espresso</td>
+			  </tr>
+			  <tr>
+				<th>2/3</th>
+				<td>Steamed Milk</td>
+			  </tr>
+			  <tr>
+				<th>-</th>
+				<td>Cream
+				</td>
+			  </tr>
+			</table>
+		</td>
+	  </tr>
+	</table>
+
+	<div class="buttonAndText">
+		<p class="sat-txt"> <em>GET 2 POINTS&nbsp;</em> </p>
+		<button class="sat-buton">ORDER FOR £20 </button>
+		
+	</div>
+{% endblock %}
+				

@@ -14,7 +14,7 @@ def drinkDetail(request, drink_name):
 
     context_dict['drink'] = drink
 
-    return render(request, 'frontEnd/drinkDetail.html', context=context_dict)
+    return render(request, 'CafeStar/drinkDetail.html', context=context_dict)
 
 
 def drinks(request):
@@ -23,7 +23,7 @@ def drinks(request):
     drink_list = Drink.objects.get()
     context_dict['drinks'] = drink_list
 
-    return render(request, 'frontEnd/drinks.html', context=context_dict)
+    return render(request, 'CafeStar/drinks.html', context=context_dict)
 
 
 def drinksModify(request):
@@ -36,7 +36,7 @@ def homePage(request):
     context_dict = {}
     context_dict['drinks'] = drink_list
 
-    return render(request, 'frontEnd/homePage.html', context=context_dict)
+    return render(request, 'CafeStar/homePage.html', context=context_dict)
 
 
 def newLogin(request):
@@ -44,6 +44,7 @@ def newLogin(request):
 
 
 def order(request, order_ID, user_ID):
+    # TODO: need to get user ID and order ID here
     context_dict = {}
     if request.method == 'POST':
         drink_name = request.POST.get('drinks')
@@ -65,7 +66,7 @@ def order(request, order_ID, user_ID):
                             Price=price,
                             Point=point)
         order_model.save()
-    return render(request, 'frontEnd/order.html', context=context_dict)
+    return render(request, 'CafeStar/order.html', context=context_dict)
 
 
 def orderList(request):
@@ -101,4 +102,4 @@ class OrderInformationView(View):
         context_dict['price'] = price
         context_dict['point'] = point
 
-        return render(request, 'frontEnd/order.html', context=context_dict)
+        return render(request, 'CafeStar/order.html', context=context_dict)

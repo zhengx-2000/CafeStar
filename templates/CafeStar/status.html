@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+
+{% block title_block %}
+	Shop Status
+{% endblock %}
+
+{% block header_block %}
+	<div class="container">
+		<h2>SHOP STATUS</h2>
+	</div>
+	
+{% endblock %}
+				
+{% block content_block %}
+
+	<table class="firstTable" style="width: 100%; text-align: left;">
+	  <tr>
+		<th>Opening Hours</th>
+		<td>12am - 4pm</td>
+	  </tr>
+	  <tr>
+		<th>Service Options</th>
+		<td>Inside delivery · Take-out</td>
+	  </tr>
+	  <tr>
+		<th>Phone</th>
+		<td>0178 778 7878
+		</td>
+	  </tr>
+	  <tr>
+		<th>Address</th>
+		<td>178 Star St, Glasgow G1 78KRB</td>
+	  </tr>
+	</table>
+
+	<br>
+
+{% endblock %}
