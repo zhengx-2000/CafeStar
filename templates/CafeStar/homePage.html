@@ -15,38 +15,45 @@
         <div class="top">
             <div class="top-log">
                 <a href="javascript:void(0);" style="display: block;">
-                    <img src="../static/image/coffereLogo.png" class="logo_img l-animtion" alt="logo">
+                    <img src="../static/image/coffeeLogo.png" class="logo_img l-animtion" alt="logo">
                 </a>
             </div>
             <div class="top-item">
                 <div class="top-btn-content">
-                    <button id="homePageBtn">HOMEPAGE</button>
+                    <a href="/CafeStar/">
+                        <button id="homePageBtn">HOMEPAGE</button>
+                    </a>
                 </div>
 
             </div>
             <div class="top-item">
                 <div class="top-btn-content">
-                    <button class="top-text" id="drinkLinkBtn">DRINKS</button>
+                    <a href="/CafeStar/drinks">
+                        <button class="top-text" id="drinkLinkBtn">DRINKS</button>
+                    </a>
+
                 </div>
 
             </div>
             <div class="top-item">
                 <div class="top-btn-content">
+                       <a href="/CafeStar/order">
                     <button class="top-text">ORDERS</button>
+                       </a>
                 </div>
 
             </div>
 
             <div class="top-item" style="float: right">
-{#                <div class="user">#}
-{#                    <!-- <a href="javascript:void(0);"  id="userProfileBtn"  style="display: block;"> -->#}
-{#                    <a href="/CafeStar/login"  style="display: block;">#}
-{#                        <img src="../static/image/user.png" class="user-img u-animtion" alt="user">#}
-{#                    </a>#}
-{#                </div>#}
+                {#                <div class="user">#}
+                {#                    <!-- <a href="javascript:void(0);"  id="userProfileBtn"  style="display: block;"> -->#}
+                {#                    <a href="/CafeStar/login"  style="display: block;">#}
+                {#                        <img src="../static/image/user.png" class="user-img u-animtion" alt="user">#}
+                {#                    </a>#}
+                {#                </div>#}
                 <div class="user">
                     <!-- <a href="javascript:void(0);"  id="userProfileBtn"  style="display: block;"> -->
-                    <a href="/CafeStar/edit"  style="display: block;">
+                    <a href="/CafeStar/edit" style="display: block;">
                         <img src="../static/image/user.png" class="user-img u-animtion" alt="user">
                     </a>
                     <span> {{ request.session.userInfo.userName }}</span>

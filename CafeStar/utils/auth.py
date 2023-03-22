@@ -9,11 +9,12 @@ class Authentication(MiddlewareMixin):
     def process_request(self, request):
 
         # Allow direct access to these paths
-        if request.path_info in ['/CafeStar/login', '/CafeStar/register','/CafeStar/homePage','/CafeStar/drinks.html','/CafeStar/homePage.html','/']:
+        if request.path_info in ['/CafeStar/login', '/CafeStar/register', '/CafeStar/homePage', '/CafeStar/drinks',
+                                 '/CafeStar/', '/']:
             return
         # Permission verification
         userInfo = request.session.get("userInfo")
-        print('userInfo',userInfo)
+        print('userInfo', userInfo)
         if not userInfo:
             print('Intercept page : ', request.path_info)
             return render(request, "CafeStar/newLogin.html")
