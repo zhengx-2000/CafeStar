@@ -62,24 +62,19 @@ class UserTest(TestCase):
         self.assertEqual(p.Fullname, 'testFullName')
         self.assertEqual(p.Username, 'testUserName')
 
-
     def test_user_delete(self):
         p = User.objects.get(UserID=2222222)
         p.delete()
         ret = User.objects.filter(UserID=2222222)
 
-        self.assertEqual(len(ret),0)
+        self.assertEqual(len(ret), 0)
 
     def test_user_update(self):
         p = User.objects.get(UserID=2222222)
         p.UserID = 1234567
         p.save()
         ret = User.objects.filter(UserID=1234567)
-        self.assertEqual(len(ret),1)
-
-
-
-
+        self.assertEqual(len(ret), 1)
 
     """   
     OrderID = models.IntegerField(primary_key=True, verbose_name='OrderID')
@@ -159,13 +154,13 @@ class UserTest(TestCase):
         self.assertEqual(drink.DrinkID, 3333333)
         self.assertEqual(drink.Name, 'Drink')
 
-
     """   
     OpenTime = models.DateTimeField(verbose_name='OpenTime')
     CloseTime = models.DateTimeField(verbose_name='CloseTime')
     OrderCount = models.IntegerField(verbose_name='OrderCount')
     NextOrderID = models.IntegerField(verbose_name='NextOrderID')
     """
+
     def test_shop(self):
         ShopStatus.objects.create(
             OpenTime=datetime.datetime(2023, 3, 21, 20, 41, 30),
@@ -180,3 +175,72 @@ class UserTest(TestCase):
         print(shop.NextOrderID)
 
         self.assertEqual(shop.NextOrderID, 1)
+
+
+from django.http import HttpRequest
+from django.urls import resolve
+from CafeStar.views import newLogin, logout, userProfile, register
+
+"""
+    path('login', views.newLogin, name='login'),
+    path('register', views.register, name='register'),
+    path('logout', views.logout, name='logout'),
+    path('edit', views.userProfile, name='edit'),"""
+
+
+class test_User(TestCase):
+    def test_root_url_to_login(self):
+        # resolve is a Django internal function that resolves URLs and maps them to the appropriate view functions
+        found = resolve('/CafeStar/login')
+        # Check if newLogin can be found when resolving the site root path "/CafeStar/login"
+        self.assertEqual(found.func, newLogin)
+
+    def test_root_url_to_register(self):
+        found = resolve('/CafeStar/register')
+        # Check if newLogin can be found when resolving the site root path "/CafeStar/register"
+        self.assertEqual(found.func, register)
+
+    def test_root_url_to_logout(self):
+        found = resolve('/CafeStar/logout')
+        # Check if newLogin can be found when resolving the site root path "/CafeStar/logout"
+        self.assertEqual(found.func, logout)
+
+    def test_root_url_to_edit(self):
+        found = resolve('/CafeStar/edit')
+        # Check if newLogin can be found when resolving the site root path "/CafeStar/edit"
+        self.assertEqual(found.func, userProfile)
+
+
+from CafeStar.views import homePage, drinkDetail, drinks, order, OrderInformationView
+
+""" 
+    path('', views.homePage, name='home_page'),
+    path('drinkDetail', views.drinkDetail, name='drink_detail'),
+    path('drinks', views.drinks, name='drinks'),
+    path('order', views.order, name='order'),
+    path('orderPricePoint', views.OrderInformationView.as_view(), name='order_price_point'),
+"""
+
+
+class test_Drink(TestCase):
+    # def test_root_url_to_edit(self):
+    #
+    #     found = resolve('home_page')
+    #     # Check if newLogin can be found when resolving the site root path "/CafeStar/edit"
+    #     self.assertEqual(found.func, homePage)
+    def test_root_url_to_drinkDetail(self):
+        found = resolve('/CafeStar/drinkDetail')
+        # Check if newLogin can be found when resolving the site root path "/CafeStar/drinkDetail"
+        self.assertEqual(found.func, drinkDetail)
+
+    def test_root_url_to_drinks(self):
+        found = resolve('/CafeStar/drinks')
+        # Check if newLogin can be found when resolving the site root path "/CafeStar/drinks"
+        self.assertEqual(found.func, drinks)
+
+
+
+    def test_root_url_to_order(self):
+        found = resolve('/CafeStar/order')
+        # Check if newLogin can be found when resolving the site root path "/CafeStar/order"
+        self.assertEqual(found.func, order)
