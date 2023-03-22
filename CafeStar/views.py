@@ -208,6 +208,9 @@ def register(request):
 
 # Edit user method
 def userProfile(request):
+    print('in userProfile : method: ', request.method)
+    print('session info: ', request.session.get("userInfo"))
+
     userId = request.session.get("userInfo")['userId']
     userForm = models.User.objects.filter(UserID=userId).first()
 
@@ -242,6 +245,7 @@ def userProfile(request):
         request.session["userInfo"] = {
             'userName': form.cleaned_data.get('Fullname'),
             'email': form.cleaned_data.get('Email'),
+            'userId': userId,
         }
         error = "Saved successfully"
         return render(request, 'CafeStar/userProfile.html', {"userModelform": form, "error_msg": error})

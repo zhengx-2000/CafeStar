@@ -7,6 +7,9 @@
     <script src="../static/js/main.js"></script>
     <link rel="stylesheet" href="../static/css/userProfile.css">
     <link rel="stylesheet" href="../static/css/style.css">
+    <style>
+        a{text-decoration: none}
+    </style>
 </head>
 <body>
 <div class="main_father justify-content-center">
@@ -41,6 +44,7 @@
                     <a href="javascript:void(0);" style="display: block;">
                         <img src="../static/image/user.png" class="user-img u-animtion" alt="user">
                     </a>
+                    <a href="/CafeStar/logout" style="color: black" >LOGOUT</a>
                 </div>
             </div>
             <div class="search-container" style="float: right">
@@ -91,17 +95,15 @@
 
                     </div>
                     <div class="home-left-bottom">
-                         <span style="color: red">{{ error_msg}}</span>
+
                         <div class="home-left-bottom-form">
+                             <span style="color: red">{{ error_msg }}</span>
                             <button id="/CafeStar/edit" class="sign-btn" type="submit">SAVE</button>
                         </div>
-                        <div class="home-left-bottom-form">
-                            <a href="/CafeStar/logout">LOG OUT</a>
-                        </div>
 
+                        <div style="clear: both"></div>
                     </div>
 
-                    <div style="clear: both"></div>
                 </div>
             </form>
         </div>

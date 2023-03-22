@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # Permission check For testing purposes, comment out the following line
-    # 'CafeStar.utils.auth.Authentication',
+    'CafeStar.utils.auth.Authentication',
 ]
 
 ROOT_URLCONF = 'cafe_star_project.urls'
