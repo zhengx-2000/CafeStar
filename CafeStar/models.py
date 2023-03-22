@@ -11,7 +11,7 @@ class User(models.Model):
     Email = models.EmailField(max_length=30, verbose_name='Email')
     Password = models.CharField(max_length=30, verbose_name='Password')
     PhoneNumber = models.IntegerField(verbose_name='PhoneNumber')
-    Point = models.IntegerField(verbose_name='Point', null=True, blank=True)
+    Point = models.IntegerField(verbose_name='Point', default=0)
 
 
 class Order(models.Model):

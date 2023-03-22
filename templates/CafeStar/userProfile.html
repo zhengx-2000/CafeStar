@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="../static/css/userProfile.css">
     <link rel="stylesheet" href="../static/css/style.css">
     <style>
-        a{text-decoration: none}
+        a {
+            text-decoration: none
+        }
     </style>
 </head>
 <body>
@@ -44,7 +46,7 @@
                     <a href="javascript:void(0);" style="display: block;">
                         <img src="../static/image/user.png" class="user-img u-animtion" alt="user">
                     </a>
-                    <a href="/CafeStar/logout" style="color: black" >LOGOUT</a>
+                    <a href="/CafeStar/logout" style="color: black">LOGOUT</a>
                 </div>
             </div>
             <div class="search-container" style="float: right">
@@ -89,16 +91,33 @@
                                         </td>
                                     </tr>
                                 {% endfor %}
+                                <tr>
+                                    <td>
+                                        <label>Point</label>
+                                    </td>
+                                    <td>
+                                        <div class="sign-txt">
+                                            <input type="text" class="sign-txt" disabled="disabled"
+                                                   value="{{ request.session.point }}">
+
+                                        </div>
+                                    </td>
+                                </tr>
 
                             </table>
                         </div>
 
                     </div>
+
+
                     <div class="home-left-bottom">
 
+
                         <div class="home-left-bottom-form">
-                             <span style="color: red">{{ error_msg }}</span>
+
                             <button id="/CafeStar/edit" class="sign-btn" type="submit">SAVE</button>
+                            <div></div>
+                            <div class="home-left-bottom-form" style="color: red">{{ error_msg }}</div>
                         </div>
 
                         <div style="clear: both"></div>

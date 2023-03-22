@@ -213,6 +213,8 @@ def userProfile(request):
 
     userId = request.session.get("userInfo")['userId']
     userForm = models.User.objects.filter(UserID=userId).first()
+    point = userForm.Point
+    request.session['point'] = point
 
     if request.method == "GET":
         # When accessed via get method
