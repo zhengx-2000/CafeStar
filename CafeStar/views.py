@@ -12,13 +12,14 @@ import random
 from django.shortcuts import redirect
 
 
-def drinkDetail(request, drink_name="Latte"):
-    # TODO: Need Session here
+def drinkDetail(request):
+    # TODO: Need Session create here!
+    drink_name = request.session.get('drink_info')
     context_dict = {}
     try:
         drink = Drink.objects.get(Name=drink_name)
     except:
-        drink = None
+        drink = 'Latte'
 
     context_dict['drink'] = drink
 
