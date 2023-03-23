@@ -13,8 +13,7 @@ from django.shortcuts import redirect
 
 
 def drinkDetail(request):
-    # TODO: Need Session create here!
-    drink_name = request.session.get('drink_info')
+    drink_name = request.session.get('drink_name')
     context_dict = {}
     try:
         drink = Drink.objects.get(Name=drink_name)
@@ -31,6 +30,11 @@ def drinks(request):
 
     drink_list = Drink.objects.all()
     context_dict['drinks'] = drink_list
+
+    if request.method == 'POST':
+        drink_name = request.POST.get('drink')
+        request.session['drink_name'] = drink_name
+        return redirect(reverse('CafeStar:drinkDetail'))
 
     return render(request, 'CafeStar/drinks.html', context=context_dict)
 
