@@ -1,4 +1,6 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import Sum
+from django.urls import reverse
 from django.shortcuts import render
 from CafeStar.models import User, Order, Drink, ShopStatus
 from django.views import View
@@ -10,7 +12,8 @@ import random
 from django.shortcuts import redirect
 
 
-def drinkDetail(request, drink_name):
+def drinkDetail(request, drink_name="Latte"):
+    # TODO: Need Session here
     context_dict = {}
     try:
         drink = Drink.objects.get(Name=drink_name)
@@ -32,20 +35,25 @@ def drinks(request):
 
 
 def drinksModify(request):
-    pass
+    # TODO: DO WE REALLY IMPLEMENTED THE ACCESS TO THIS PAGE?
+    return render(request, 'CafeStar/drinksModify.html')
 
 
 def homePage(request):
     drink_list = Drink.objects.order_by('-Rating')[:5]
 
-    context_dict = {}
-    context_dict['drinks'] = drink_list
+    context_dict = {'drinks': drink_list}
 
     return render(request, 'CafeStar/homePage.html', context=context_dict)
 
 
-def order(request, order_ID, user_ID):
-    # TODO: need to get user ID and order ID here
+def order(request):
+    user_id = request.session.get("userInfo")['userId']
+    orders = Order.objects.all()
+    if orders.count() == 0:
+        order_id = 0
+    else:
+        order_id = orders.last().OrderID + 1
     context_dict = {}
     if request.method == 'POST':
         drink_name = request.POST.get('drinks')
@@ -53,12 +61,12 @@ def order(request, order_ID, user_ID):
         milks = request.POST.get('milks')
         pickup = request.POST.get('pickup')
         drink = Drink.objects.filter(Name=drink_name)
-        drink_ID = drink.first().DrinkID
+        drink_id = drink.first().DrinkID
         price = drink.first().Price
         point = drink.first().Point
-        order_model = Order(OrderID=order_ID,
-                            UserID=user_ID,
-                            DrinkID=drink_ID,
+        order_model = Order(OrderID=order_id,
+                            UserID=user_id,
+                            DrinkID=drink_id,
                             Status=False,
                             Drink=drink_name,
                             Sweetness=sweetness,
@@ -71,11 +79,21 @@ def order(request, order_ID, user_ID):
 
 
 def orderList(request):
-    pass
+    context_dict = {}
+    user_id = request.session.get("userInfo")['userId']
+    order_list = Order.objects.filter(UserID=user_id, Status=False)
+    if order_list.count() == 0:
+        return redirect(reverse('CafeStar:order'))
+    else:
+        total_price = order_list.aggregate(price_sum=Sum('Price'))['price_sum']
+        context_dict['order_list'] = order_list
+        context_dict['total_price'] = total_price
+        return render(request, 'CafeStar/orderList.html')
 
 
 def status(request):
-    pass
+    context_dict = {'shopStatus': ShopStatus}
+    return render(request, 'CafeStar/status.html', context=context_dict)
 
 
 class OrderInformationView(View):
