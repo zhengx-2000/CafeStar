@@ -15,7 +15,7 @@ def populate():
     drinks = [
         {'DrinkID': 0,
          'Name': 'Latte',
-         'Picture': open('static/image/Latte.png', 'r'),
+         'Picture': 'static/image/Latte.png',
          'Description': 'This is Latte',
          'Nutrition': 'This is nutrition for Latte',
          'Ingredients': 'This is ingredients for Latte',
