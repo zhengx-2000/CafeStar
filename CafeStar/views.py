@@ -60,6 +60,17 @@ def order(request):
     else:
         order_id = orders.last().OrderID + 1
     context_dict = {}
+    """
+    if request.method == 'POST' and request.id == 'check_price_point':
+        print(0)
+        drink_name = request.POST.get('drinks')
+        drink = Drink.objects.filter(Name=drink_name)
+        price = drink.first().Price
+        point = drink.first().Point
+        context_dict['price'] = price
+        context_dict['point'] = point
+        return render(request, 'CafeStar/order.html', context=context_dict)
+    """
     if request.method == 'POST':
         drink_name = request.POST.get('drinks')
         sweetness = request.POST.get('sweetness')
@@ -80,6 +91,7 @@ def order(request):
                             Price=price,
                             Point=point)
         order_model.save()
+        return redirect(reverse('CafeStar:order_list'))
     return render(request, 'CafeStar/order.html', context=context_dict)
 
 
