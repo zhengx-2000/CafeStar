@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from CafeStar.models import User, Drink, Order, ShopStatus
+
+
+admin.site.register(User)
+admin.site.register(Drink)
+admin.site.register(Order)
+admin.site.register(ShopStatus)
