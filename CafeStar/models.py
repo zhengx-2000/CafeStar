@@ -30,7 +30,7 @@ class Order(models.Model):
 class Drink(models.Model):
     DrinkID = models.IntegerField(primary_key=True, verbose_name='DrinkID')
     Name = models.CharField(max_length=30, verbose_name='Name')
-    Picture = models.ImageField(upload_to='drink_images/',
+    Picture = models.ImageField(upload_to='static/image/',
                                 verbose_name='Picture')  # Here is a directory to store drinks pictures
     Description = models.CharField(max_length=100, verbose_name='Description')
     Nutrition = models.CharField(max_length=100, verbose_name='Nutrition', null=True, blank=True)
